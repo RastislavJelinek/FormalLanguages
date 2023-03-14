@@ -1,3 +1,5 @@
+
+//read character from stdin, check if not EOf or '\n' 
 char read_char();
 
 //q1 and q7 were end states returning only 1, later delleted in refactoring
