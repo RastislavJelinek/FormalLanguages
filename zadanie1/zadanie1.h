@@ -11,8 +11,9 @@ int getAmount();
 //read character from stdin, check if not EOf or '\n' 
 char read_char();
 
+bool q0(char input);
 //q1 and q7 were end states returning only 1, later delleted in refactoring
-
+bool q1();
 //q1 when: 'a' or 'ca'
 
 //q2 state where you get when: 'b'
@@ -29,6 +30,10 @@ bool q5();
 
 //q6 state where you get when: 'bba' or 'bca' or 'bbba'
 bool q6();
+
+
+bool q7();
+bool q8();
 
 //q7 state where you get when: 'bbab' or 'bcab' or 'bbbab'
 #endif // ZADANIE1_H
