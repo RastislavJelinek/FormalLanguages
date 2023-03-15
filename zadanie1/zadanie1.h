@@ -1,4 +1,8 @@
+#include <stdbool.h>
 
+bool start();
+
+int getAmount();
 //read character from stdin, check if not EOf or '\n' 
 char read_char();
 

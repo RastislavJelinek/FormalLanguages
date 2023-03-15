@@ -1,29 +1,44 @@
 CC = gcc
-CFLAGS = -std=gnu11 -Wall -Wextra
-LDFLAGS =
-SOURCES = zadanie1.c
-HEADERS = zadanie1.h
-OBJDIR = obj
+CFLAGS = -g -Wall -Wextra -std=c99
+OBJDIR = build
+EXEDIR = exe
+
+SOURCES = main.c zadanie1.c linkList.c
+HEADERS = zadanie1.h linkList.h
+
+SOURCES_TEST = zadanie1test.c linkList.c
+HEADERS_TEST = zadanie1.h linkList.h
+
 EXECUTABLE = zadanie1
-
-_OBJ = $(SOURCES:.c=.o)
-_DEPS = $(HEADERS)
-
-# DEPS = $(patsubst %,./%,$(_DEPS))
-DEPS = $(_DEPS)
-OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
-
-$(OBJDIR)/%.o: %.c $(DEPS)
-	mkdir -p $(OBJDIR)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(EXECUTABLE): $(OBJ)
-	$(CC) -o $@ $^ $(LDFLAGS)
-
-all: $(EXECUTABLE)
-
-clean:
-	rm -f $(OBJDIR)/*.o $(EXECUTABLE)
-	if [ -d $(OBJDIR) ]; then rmdir $(OBJDIR); fi
+EXECUTABLE_TEST = zadanie1_TEST
 
 .PHONY: all clean
+
+all:$(EXEDIR)/$(EXECUTABLE) $(EXEDIR)/$(EXECUTABLE_TEST)
+
+$(EXEDIR)/$(EXECUTABLE): $(OBJDIR)/main.o $(OBJDIR)/zadanie1.o $(OBJDIR)/linkList.o 
+	mkdir -p $(EXEDIR)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(EXEDIR)/$(EXECUTABLE_TEST): $(OBJDIR)/zadanie1test.o $(OBJDIR)/zadanie1.o $(OBJDIR)/linkList.o
+	mkdir -p $(EXEDIR)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(OBJDIR)/linkList.o: linkList.c linkList.h
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/main.o: main.c zadanie1.h
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/zadanie1.o: zadanie1.c zadanie1.h linkList.h
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/zadanie1test.o: zadanie1test.c zadanie1.h 
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJDIR) $(EXEDIR)
