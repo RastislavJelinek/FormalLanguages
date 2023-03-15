@@ -6,6 +6,8 @@
 
 node_t *matches = NULL;
 int amount = 0;
+char* string;
+int position = 0;
 
 node_t *get_matches() {
     return matches;
@@ -14,14 +16,20 @@ int getAmount(){
     return amount;
 }
 
-bool start(){
-    int position = -1;
+void start(char* input){
+    string = input;
+    matches = NULL;
+    amount = 0;
+    position = 0;
+
+
     int result;
     char buffer;
+    int matchStartPosition = position;
     while ((buffer = read_char()) > 0){
         switch(buffer){
             case 'a':
-                        result = true;
+                        result =  true;
                         break;
             case 'b':
                         result = q2();
@@ -29,26 +37,33 @@ bool start(){
             case 'c':
                         result = q3();
                         break;
+            default:    
+                        result = false;
+                        break;
         }
-        ++position; 
         if(result == true){
             ++amount;
-            matches = add_node(matches, position);
+            matches = add_node(matches, matchStartPosition);
         }
+        matchStartPosition = position;
     }
-    return amount > 0 ? true : false;
 }
 
 
 char read_char(){
     char buffer;
-    if(read(1, &buffer, 1) <= 0) return 0;
-    if(buffer == '\n') return 0;
+    if(string != NULL){
+        buffer = string[position];
+    }else if(read(1, &buffer, 1) <= 0) return 0;
+    if(buffer == '\0' || buffer == '\n' || buffer == EOF) return 0;
+    ++position; 
     return buffer;
 }
 
 bool q2(){
     switch(read_char()){
+        case 'a':
+                    return q6();
         case 'b':
                     return q4();
         case 'c':

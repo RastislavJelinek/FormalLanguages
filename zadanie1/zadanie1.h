@@ -3,11 +3,11 @@
 #include <stdbool.h>
 #include "linkList.h"
 
-bool start();
+void start(char* input);
 
 node_t *get_matches();
 
-//int getAmount();
+int getAmount();
 //read character from stdin, check if not EOf or '\n' 
 char read_char();
 
