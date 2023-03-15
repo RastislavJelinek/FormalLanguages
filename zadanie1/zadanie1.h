@@ -1,8 +1,13 @@
+#ifndef ZADANIE1_H
+#define ZADANIE1_H
 #include <stdbool.h>
+#include "linkList.h"
 
 bool start();
 
-int getAmount();
+node_t *get_matches();
+
+//int getAmount();
 //read character from stdin, check if not EOf or '\n' 
 char read_char();
 
@@ -26,3 +31,4 @@ bool q5();
 bool q6();
 
 //q7 state where you get when: 'bbab' or 'bcab' or 'bbbab'
+#endif // ZADANIE1_H
