@@ -3,10 +3,10 @@
 #include "linkList.h"
 
 int main(void) {
-    start();
+    start(NULL);
     node_t* a = get_matches();
-    
-    //printf("Amount of matches: %d\n",amount);
+    printf("\n");
+    printf("Amount of matches: %d\n",getAmount());
     printList(a);
     free_list(a);
     return 0;
