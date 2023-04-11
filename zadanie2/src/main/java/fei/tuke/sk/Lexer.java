@@ -23,22 +23,22 @@ public class Lexer {
             case 'x' -> {
                     for (int i = 0; i < 2; ++i) {
                         consume();
-                        if (current != 'x')throw new CalculatorException("Unexpected character: " + (char) current);
+                        if (current != 'x')throw new CalculatorException("only valid use of 'x' is in format 'xxx': " + (char) current);
                     }
                     yield Token.MUL;
                 }
             case '/'->Token.DIV;
             case 'D'-> {
                 consume();
-                if (current != 'I')throw new CalculatorException("Unexpected character: " + (char) current);
+                if (current != 'I')throw new CalculatorException("only valid use of 'I' is in format 'DIV': " + (char) current);
                 consume();
-                if (current != 'V')throw new CalculatorException("Unexpected character: " + (char) current);
+                if (current != 'V')throw new CalculatorException("only valid use of 'V' is in format 'DIV': " + (char) current);
                 yield Token.DIV;
             }
             case '^'->Token.POW;
             case 'U'->{
                 consume();
-                if (current != 'P')throw new CalculatorException("Unexpected character: " + (char) current);
+                if (current != 'P')throw new CalculatorException("only valid use of 'P' is in format 'UP': " + (char) current);
                 yield  Token.POW;
             }
             case '('->{
@@ -46,12 +46,12 @@ public class Lexer {
                 yield Token.LPAREN;
             }
             case ')'->{
-                if (bracketCount == 0)throw new CalculatorException("Unmatched right parenthesis");
+                if (bracketCount == 0)throw new CalculatorException("Unmatched right bracket");
                 bracketCount--;
                 yield  Token.RPAREN;
             }
             case -1->{
-                if (bracketCount != 0)throw new CalculatorException("Unmatched left parenthesis");
+                if (bracketCount != 0)throw new CalculatorException("Unmatched left bracket");
                 yield Token.EOF;
             }
 
