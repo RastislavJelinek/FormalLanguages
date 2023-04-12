@@ -1,10 +1,8 @@
 # Konečnostavový akceptor
-## znenie prvého zadania : 
 
-
->### Formálne jazyky
+> ### Formálne jazyky
 >
->### Zadanie 1: Regulárny výraz
+> ### Zadanie 1: Regulárny výraz
 >
 >Úlohou je implementovať konečno-stavový akceptor konkrétneho regulárneho výrazu (bez použitia tzv. regex knižníc),
     ktorý ste dostali pridelený od svojho cvičiaceho. Program načíta zo štandardného vstupu reťazec ukončený znakom nového riadku. 
@@ -29,7 +27,7 @@
 >
 >Celkové hodnotenie projektu: max. 3 body.
 >
->© Copyright 2023 KPI FEI TUKE
+><sub>  © Copyright 2023 KPI FEI  </sub>	
 
 
 znenie môjho regexu do zadania : `[c]a|b({c}|b[b])ab`
