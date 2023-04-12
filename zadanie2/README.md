@@ -23,6 +23,7 @@
 >K zadaniu vytvorte aj jednotkové testy, napr. pomocou knižnice JUnit alebo inej. Očakáva sa spolu rádovo 10 volaní funkcií "assert". Viac ako o počet však ide o presnosť - snažte sa otestovať hlavne hraničné situácie, teda napr. chybné reťazce, ktoré sa od správnych líšia len jedným znakom, vstupy s množstvom vnorených zátvoriek, reťazec s medzerami, vstup kde záleží na priorite operátorov a pod. Pripravte si prostredie tak, aby ste na požiadanie cvičiaceho spustili testy, napr. príkazom mvn test alebo pomocou IDE. Zadanie je možné odovzdať aj bez testov, no za znížený počet bodov.
 >
 >	<sub>  © Copyright 2023 KPI FEI  </sub>	
+
 znenie gramatiky zadanej cvičiacim:
 
 >Pravidlá gramatiky - skupina 5:
