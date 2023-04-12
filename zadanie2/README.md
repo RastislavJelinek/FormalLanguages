@@ -5,7 +5,7 @@
 >Podporované majú byť:
 >
 >- **celé čísla,**
->- **operátory +, -, *, / (celočíselné delenie),**
+>- **operátory +, -, \*, / (celočíselné delenie),**
 >- **unárne mínus,**
 >- **zátvorky s ľubovoľnou úrovňou vnorenia.**
 >
