@@ -204,7 +204,7 @@ typedef struct greatest_memory_cmp_env {
     size_t size;
 } greatest_memory_cmp_env;
 
-/* Callbacks for string and raw memory types. */
+/* Callbacks for inputString and raw memory types. */
 extern greatest_type_info greatest_type_info_string;
 extern greatest_type_info greatest_type_info_memory;
 

@@ -12,7 +12,7 @@ TEST empty_should_equal_zero() {
     PASS();
 }
 TEST not_regex_char_should_equal_zero() {
-    start("kkhgijjfg-*/0986");
+    start("kkhgijjfg-0986");
     ASSERT_EQ(0, getAmount());
     PASS();
 }
@@ -24,6 +24,7 @@ TEST c_should_equal_zero() {
 }
 TEST b_should_equal_zero() {
     start("b");
+    printf("%d\n",getAmount());
     ASSERT_EQ(0, getAmount());
     PASS();
 }

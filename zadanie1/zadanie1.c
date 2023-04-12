@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <unistd.h>
-#include <stdlib.h>
 #include "zadanie1.h"
 #include "linkList.h"
 
 node_t *matches = NULL;
 int amount = 0;
-char* string;
+char* inputString = NULL;
 int position = 0;
-int temporaryCounter = 0;
+int bufferCounter = 0;
 char temporary[20];
-bool check = false; 
+bool check = false;
 
 node_t *get_matches() {
     return matches;
@@ -26,34 +25,28 @@ void resetTemporary(){
 }
 
 void start(char* input){
-    string = input;
+    inputString = input;
     matches = NULL;
     amount = 0;
     position = 0;
 
-    int result;
     char buffer;
     int matchStartPosition = position;
-    
+
     while ((buffer = read_char()) > 0){
+        bool result = false;
         result = q0(buffer);
 
-        if(result == true){
-            ++amount;
-            matches = add_node(matches, matchStartPosition);
-        
-        } else if (check == true) {
-            // go back to the position where we started checking for the current match
-            position = matchStartPosition + 1;
-            // reset the temporary buffer
-            resetTemporary();
-            // try the next character
+        if (result != true) {
+            check = true;
+            ++matchStartPosition;
+            position = matchStartPosition;
             continue;
         }
 
-        result = false;
-        check = false;
-        temporaryCounter = 0;
+        ++amount;
+        matches = add_node(matches, matchStartPosition);
+        bufferCounter = 0;
         resetTemporary();
         matchStartPosition = position;
     }
@@ -61,27 +54,25 @@ void start(char* input){
 
 
 char read_char() {
-    char buffer;
-    if (temporary[temporaryCounter] != '\0' && check == true) {
-        buffer = temporary[temporaryCounter];
-        ++temporaryCounter;
+    char buffer = 0;
+    if (inputString != NULL) {
+        buffer = inputString[position];
+        ++position;
         return buffer;
-    } else if (string != NULL) {
-        buffer = string[position];
-    } else if (read(1, &buffer, 1) <= 0) {
-        return 0;
     }
 
-    if (buffer == '\0' || buffer == '\n' || buffer == EOF) {
-        return 0;
+    if (check == true && temporary[bufferCounter] != '\0') {
+        buffer = temporary[bufferCounter];
+        ++bufferCounter;
+        return buffer;
     }
+    if (read(0, &buffer, 1) <= 0)return 0;
+    if (buffer == '\0' || buffer == '\n' || buffer == EOF) return 0;
 
-    temporary[temporaryCounter] = buffer;
-    ++temporaryCounter;
     ++position;
-
     return buffer;
 }
+
 
 
 
@@ -115,21 +106,12 @@ bool q2(){
         default:    
                     return false;
     }
-} 
-
-
-
-
+}
 bool q3(){
     return read_char() == 'a' ? q1() : false;
 } 
 bool q4(){
-    switch(read_char()){
-        case 'b':
-                    return q7();
-        default:    
-                    return false;
-    }
+    return read_char() == 'b' ? q7() : false;
 } 
 bool q5(){
     switch(read_char()){
@@ -157,10 +139,5 @@ bool q7(){
 }
 
 bool q8(){
-    switch(read_char()){
-        case 'a':
-                    return q4();
-        default:    
-                    return false;
-    }
+    return read_char() == 'a' ? q4() : false;
 }
