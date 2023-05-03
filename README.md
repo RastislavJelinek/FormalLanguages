@@ -5,3 +5,5 @@ Zadania v danom semestry boli:
 1. konečnostavový akceptor -  [README zadanie 1](zadanie1/README.md)
 2. kalkulačka v terminály  -  [README zadanie 2](zadanie2/README.md)
 3. DSL  -  [README zadanie 3](zadanie3/README.md)
+
+[Stránka predmetu](https://kurzy.kpi.fei.tuke.sk/fj/index.html)
