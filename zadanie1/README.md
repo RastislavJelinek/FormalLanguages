@@ -14,10 +14,10 @@
 >
 > Obsah repozitára má mať nasledujúcu štruktúru:
 >- **zadanie1/**
->- **README.txt**
->- **Makefile**
->- ***.c**
->- ***.h**
+>  - **README.txt**
+>  - **Makefile**
+>  - ***.c**
+>  - ***.h**
 >
 >Nezabudnite predovšetkým na vytvorenie priečinku "zadanie1", keďže ďalšie zadania budú v tom istom repozitári. Súbor README.txt nemá predpísaný formát, ale musí obsahovať konkrétny regulárny výraz, ktorý máte pridelený. Vďaka súboru Makefile by sa mal dať projekt skompilovať príkazom make. Názvy C a H súborov nie sú špecifikované, hlavičkové súbory sú nepovinné.
 >

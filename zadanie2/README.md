@@ -14,9 +14,9 @@
 >Do repozitára, ktorý už máte vytvorený (z 1. zadania), pomocou Gitu nahrajte svoj kód najneskôr do začiatku vášho 9. cvičenia. Pridaný obsah má mať nasledujúcu štruktúru:
 >
 >- **zadanie2/**
->- **src/**
->- **README.txt**
->- **pom.xml alebo build.gradle**
+>  - **src/**
+>  - **README.txt**
+>  - **pom.xml alebo build.gradle**
 >
 >Nezabudnite predovšetkým na vytvorenie priečinku zadanie2. Súbor README.txt má obsahovať gramatiku v tvare EBNF. Projekt by mal obsahovať konfiguráciu tzv. build nástroja: buď pom.xml (pre Maven) alebo build.gradle, resp. build.gradle.kts (Gradle), prípadne build.xml (Ant). Adresárová štruktúra samotných zdrojových súborov nie je presne daná, mala by zodpovedať konvenciám vybraného kompilačného nástroja.
 >
